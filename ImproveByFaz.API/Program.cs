@@ -29,6 +29,9 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+//// Enable Middleware for Response Caching
+//app.UseResponseCaching();
+
 app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())

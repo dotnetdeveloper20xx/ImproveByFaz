@@ -9,6 +9,9 @@ namespace ImproveByFaz.API.Extensions
     {
         public static IServiceCollection AddApiServices(this IServiceCollection services)
         {
+            //// Add Response Caching Service
+            //services.AddResponseCaching();
+
             // Register Controllers
             services.AddControllers();
             services.AddLogging();
