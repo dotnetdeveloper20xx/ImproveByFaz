@@ -3,6 +3,7 @@ using ImproveByFaz.Infrastructure.Extensions;
 using System.Reflection;
 using ImproveByFaz.Application.Extensions;
 using ImproveByFaz.Infrastructure.Persistence;
+using ImproveByFaz.API.Middlewares;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +20,6 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
 ));
 
 
-
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -29,6 +29,18 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionMiddleware>();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "ImproveByFaz API V1");
+        options.RoutePrefix = string.Empty; // Loads Swagger UI at root URL (`http://localhost:5000/`)
+    });
+}
+
 
 // Seed database on startup
 using (var scope = app.Services.CreateScope())
@@ -37,19 +49,7 @@ using (var scope = app.Services.CreateScope())
     DatabaseSeeder.Initialize(services);
 }
 
-
 app.UseCors("AllowAll");
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ImproveByFaz API V1");
-        c.RoutePrefix = string.Empty; // Makes Swagger available at root URL
-    });
-}
-
 
 app.UseHttpsRedirection();
 
