@@ -7,6 +7,10 @@ namespace ImproveByFaz.API.Controllers
 {
     [Route("api/questions")]
     [ApiController]
+
+    //[ApiController]
+    //[Route("api/v{version:apiVersion}/questions")]
+    //[ApiVersion("1.0")]
     public class QuestionsController : ControllerBase
     {
         private readonly IMediator _mediator;

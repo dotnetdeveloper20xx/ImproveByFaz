@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
 namespace ImproveByFaz.API.Extensions
@@ -30,6 +32,16 @@ namespace ImproveByFaz.API.Extensions
                 
                 );
             });
+
+            //services.AddApiVersioning(options =>
+            //{
+            //    options.ReportApiVersions = true;
+            //    options.AssumeDefaultVersionWhenUnspecified = true;
+            //    options.DefaultApiVersion = new ApiVersion(1, 0);
+            //    options.ApiVersionReader = new HeaderApiVersionReader("X-API-Version"); // ✅ Use headers instead of URL
+            //});
+
+
 
             // Configure CORS Policy
             services.AddCors(options =>
