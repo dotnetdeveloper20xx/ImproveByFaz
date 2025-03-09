@@ -1,0 +1,6 @@
+@ImproveByFaz.API_HostAddress = http://localhost:5012
+
+GET {{ImproveByFaz.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
