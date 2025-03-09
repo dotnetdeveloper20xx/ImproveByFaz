@@ -12,6 +12,16 @@ namespace ImproveByFaz.API.Extensions
             //// Add Response Caching Service
             //services.AddResponseCaching();
 
+            //services.AddStackExchangeRedisCache(options =>
+            //{
+            //    options.Configuration = "localhost:6379"; // Replace with your Redis Server URL
+            //    options.InstanceName = "ImproveByFaz_";
+            //});
+
+
+
+
+
             // Register Controllers
             services.AddControllers();
             services.AddLogging();

@@ -1,8 +1,10 @@
-﻿using ImproveByFaz.Application.Features.Topics.GetTopicsWithMisconceptions;
+﻿using ImproveByFaz.API.Controllers;
+using ImproveByFaz.Application.Features.Topics.GetTopicsWithMisconceptions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
+using System.Text.Json;
 
 
 namespace ImproveByFaz.API.Controllers
@@ -40,3 +42,35 @@ namespace ImproveByFaz.API.Controllers
         }
     }
 }
+
+
+
+
+// **** REDIS CACHE EXAMPLE
+
+//private readonly IDistributedCache _cache;
+
+//public TopicsController(IDistributedCache cache)
+//{
+//    _cache = cache;
+//}
+
+//public async Task<IActionResult> GetTopicsFromRedis()
+//{
+//    var cacheKey = "topicsList";
+//    string cachedData = await _cache.GetStringAsync(cacheKey);
+
+//    if (cachedData != null)
+//    {
+//        return Ok(JsonSerializer.Deserialize<string[]>(cachedData));
+//    }
+
+//    var topics = new string[] { "Math", "Science", "History", "English" };
+//    var cacheOptions = new DistributedCacheEntryOptions
+//    {
+//        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10) // Cache for 10 minutes
+//    };
+
+//    await _cache.SetStringAsync(cacheKey, JsonSerializer.Serialize(topics), cacheOptions);
+//    return Ok(topics);
+//}
