@@ -151,7 +151,7 @@ The project leverages a robust and scalable architecture designed to meet modern
 
 **1️⃣ Clone the Repository**
 
-git clone <https://github.com/your-username/ImproveByFaz.git>
+git clone <https://github.com/dotnetdeveloper20xx/ImproveByFaz.git>
 
 cd ImproveByFaz
 
@@ -189,5 +189,4 @@ The **ImproveByFaz** project is a forward-thinking educational platform that lev
 - **Deploy a live version to Azure or AWS**.
 - **Enhance with authentication, a frontend UI, and advanced analytics**.
 
-📩 **For inquiries or collaboration, feel free to reach out!** 🚀
  
